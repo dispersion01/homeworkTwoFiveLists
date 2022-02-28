@@ -12,7 +12,7 @@ public class EmployeeController {
     private EmployeeService employeeService;
 
 
-    public EmployeeController(EmployeeService employeeService, EmployeeService firstName, EmployeeService lastName) {
+    public EmployeeController(EmployeeService employeeService) {
         this.employeeService = employeeService;
     }
 @GetMapping
@@ -20,19 +20,19 @@ public class EmployeeController {
         return "Hello!";
     }
     @GetMapping("/add")
-    public Employee addEmployeer(@RequestParam("firstName") String firstName, @RequestParam("lastName") String lastName) {
+    public Employee addEmployeer(@RequestParam String firstName, @RequestParam String lastName) {
         return employeeService.addEmployee(firstName, lastName);
 
     }
 
     @GetMapping("/remove")
-    public Employee removeEmployeer(@RequestParam("firstName") String firstName, @RequestParam("lastName") String lastName) {
+    public Employee removeEmployeer(@RequestParam String firstName, @RequestParam String lastName) {
         return employeeService.removeEmployee(firstName, lastName);
 
     }
 
     @GetMapping("/find")
-    public Employee findEmployeer(@RequestParam("firstName") String firstName, @RequestParam("lastName") String lastName) {
+    public Employee findEmployeer(@RequestParam String firstName, @RequestParam String lastName) {
         return employeeService.findEmployee(firstName, lastName);
     }
 
